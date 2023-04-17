@@ -35,8 +35,7 @@ print("mylist len : ", mylist.__len__())
 
 for i in range(0,mylist.__len__()):
         z=int(z)+mylist[i]
-        print(i,z)
-print(z)
+print("Average of numbers is :" ,z/mylist.__len__())
 
 print("Largest number is :",mylist[0])
 
