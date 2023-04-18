@@ -1,7 +1,7 @@
 string = []
 reverse =[]
-counter=int(0)
-x= int((input("Enter the no. of strings to be sorted : "))) 
+
+x= int((input("Enter the no. of strings to be sorted : ")))
 for i in range(0,x):
     string.append(str(input()))
 for i in range(0,string.__len__(),1):
@@ -33,7 +33,7 @@ print(reverse)
     # print( "Number of vowels in ",reverse[j],"is",counter )
  
 for i in range(0,reverse.__len__()):
-    prCounter= counter
+    counter=int(0)
     for words in range(0,reverse[i].__len__()):
         
         if(reverse[i][words].__contains__("a")):
@@ -48,5 +48,5 @@ for i in range(0,reverse.__len__()):
         elif (reverse[i][words].__contains__("u")):
             counter =counter+1
         
-    print( "Number of vowels in ",reverse[i],"is",counter-prCounter )
+    print( "Number of vowels in ",reverse[i],"is",counter)
                  
