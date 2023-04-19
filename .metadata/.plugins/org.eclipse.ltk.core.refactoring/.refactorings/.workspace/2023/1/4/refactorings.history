@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;omniengage2&apos; to &apos;Botsolver&apos;" description="Rename resource &apos;omniengage2&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/omniengage2" name="Botsolver" stamp="1674816436124" updateReferences="true"/>
+</session>

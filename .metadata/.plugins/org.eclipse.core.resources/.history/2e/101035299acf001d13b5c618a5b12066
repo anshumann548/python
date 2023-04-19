@@ -1,0 +1,230 @@
+package omniengage;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
+public class Randomflow extends Login{
+
+@Test(priority=10)
+
+public void randomizer() throws InterruptedException
+
+{
+	
+//driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div/div[1]/div")).click(); //GETTING BACK TO DASH-BOARD
+	
+	Thread.sleep(2000);
+
+//this.driver.findElement(By.xpath("//*[@id=\'root\']/div/div[3]/div[2]/div[2]/div[3]/div[2]/div/div")).click();
+//this.driver.findElement(By.xpath("//*[@id=\'cb\']")).click();
+//this.driver.findElement(By.xpath("//*[@id=\'cb\']")).sendKeys("Bot" + Math.random() * 5);
+//this.driver.findElement(By.xpath("//*[@id=\'root\']/div/div[3]/div[2]/div[2]/div[1]/div/div[1]/div[3]/div/div/button\n")).click();
+
+driver.navigate().to("https://app.outgrow.chat/builder/anshumann.singh-1855");	
+	
+WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofMillis(30000));
+
+Actions act = new Actions(driver);
+
+//DragandDrop of nodes one by one
+
+Thread.sleep(4000);
+
+WebElement from = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[1]/td[1]/div"));
+WebElement to = this.driver.findElement(By.xpath("//*[@id=\"drawflow\"]/div[2]"));
+
+final String java_script =
+        "var src=arguments[0],tgt=arguments[1];var dataTransfer={dropEffe" +		
+        "ct:'',effectAllowed:'all',files:[],items:{},types:[],setData:fun" +
+        "ction(format,data){this.items[format]=data;this.types.append(for" +
+        "mat);},getData:function(format){return this.items[format];},clea" +
+        "rData:function(format){}};var emit=function(event,target){var ev" +
+        "t=document.createEvent('Event');evt.initEvent(event,true,false);" +
+        "evt.dataTransfer=dataTransfer;target.dispatchEvent(evt);};emit('" +
+        "dragstart',src);emit('dragenter',tgt);emit('dragover',tgt);emit(" +
+        "'drop',tgt);emit('dragend',src);";
+  
+((JavascriptExecutor)driver).executeScript(java_script, from, to);
+
+WebElement askaquestion = driver.findElement(By.xpath("//*[@id=\"phone\"]/div"));
+
+Point Node1Location = askaquestion.getLocation();
+
+System.out.println(Node1Location);
+
+
+WebElement fromagain = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[1]/td[2]/div"));
+WebElement toagain = this.driver.findElement(By.xpath("//*[@id=\"drawflow\"]/div[2]"));
+
+((JavascriptExecutor)driver).executeScript(java_script, fromagain, toagain);
+
+WebElement Buttonnode = driver.findElement(By.xpath("//*[@id=\"node-7\"]/div[2]/div"));
+act.dragAndDropBy(Buttonnode, Node1Location.getX() + 10 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//WebElement fromagainnext = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[2]/td[1]/div"));
+//WebElement tonext = this.driver.findElement(By.xpath("//*[@id=\"drawflow\"]/div[2]"));
+//
+//((JavascriptExecutor)driver).executeScript(java_script, fromagainnext, tonext);
+//
+//WebElement phonenumbernode = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[2]/td[2]/div"));
+//WebElement tocanvas = this.driver.findElement(By.xpath("//*[@id=\"drawflow\"]/div[2]"));
+//
+//((JavascriptExecutor)driver).executeScript(java_script, phonenumbernode, tocanvas);
+//
+//
+//WebElement usrnamenode = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[3]/td[1]/div"));
+//((JavascriptExecutor)driver).executeScript(java_script, usrnamenode, tocanvas);
+//
+//WebElement getaddressnode = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[3]/td[2]/div"));
+//((JavascriptExecutor)driver).executeScript(java_script, getaddressnode, tocanvas);
+//
+//WebElement sendmsgnode = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[4]/td[2]/div"));
+//((JavascriptExecutor)driver).executeScript(java_script, sendmsgnode, tocanvas);
+//
+////Repositioning nodes
+//
+//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"node-6\"]/div[2]/div/div/div[1]/div/div[1]")));
+//WebElement drag1 = this.driver.findElement(By.xpath("//*[@id=\"node-6\"]/div[2]/div/div/div[1]/div/div[1]"));
+//act.dragAndDropBy(drag1, 200, 250).build().perform();
+//
+//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"node-7\"]/div[2]/div/div/div[1]/div/div[1]")));
+//WebElement drag2 = this.driver.findElement(By.xpath("//*[@id=\"node-7\"]/div[2]/div/div/div[1]/div/div[1]"));
+//act.dragAndDropBy(drag2, 200, 350).build().perform();
+//
+//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"node-8\"]/div[2]/div/div/div[1]/div/div[1]")));
+//WebElement drag3 = this.driver.findElement(By.xpath("//*[@id=\"node-8\"]/div[2]/div/div/div[1]/div/div[1]"));
+//act.dragAndDropBy(drag3, 200, 450).build().perform();
+//
+//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"node-9\"]/div[2]/div/div/div[1]/div/div[1]")));
+//WebElement drag4 = this.driver.findElement(By.xpath("//*[@id=\"node-9\"]/div[2]/div/div/div[1]/div/div[1]"));
+//act.dragAndDropBy(drag4, 200, 550).build().perform();
+//
+//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"node-10\"]/div[2]/div/div/div[1]/div/div[1]")));
+//WebElement drag5 = this.driver.findElement(By.xpath("//*[@id=\"node-10\"]/div[2]/div/div/div[1]/div/div[1]"));
+//act.dragAndDropBy(drag5, 300, 250).build().perform();
+
+
+
+
+
+
+
+
+String nodelist[] = { "Ask a question" , "SingleSelect" ,"Get Email ID" , "Get Phone no" , "Get Username", "Get Address" ,"Send Message" };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thread.sleep(5000);
+
+
+//Repositioning button node to result node respectively
+
+//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"node-8\"]/div[2]/div")));
+//WebElement buttondrag1 = this.driver.findElement(By.xpath("//*[@id=\"node-8\"]/div[2]/div"));
+//act.dragAndDropBy(buttondrag1, 200, 250).build().perform();
+//
+//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"node-7\"]/div[2]/div")));
+//WebElement buttondrag2 = this.driver.findElement(By.xpath("//*[@id=\"node-7\"]/div[2]/div"));
+//act.dragAndDropBy(buttondrag2, 500, 350).build().perform();
+//
+//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"node-6\"]/div[2]/div")));
+//WebElement buttondrag3 = this.driver.findElement(By.xpath("//*[@id=\"node-6\"]/div[2]/div"));
+//act.dragAndDropBy(buttondrag3, 850,400).build().perform();
+//
+//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"node-6\"]/div[2]/div")));
+//WebElement resultnodedrag = this.driver.findElement(By.xpath("//*[@id=\"node-6\"]/div[2]/div"));
+//act.dragAndDropBy(resultnodedrag, 100,450).build().perform();
+//
+////Connecting nodes
+//
+//WebElement messagenodeoutput = this.driver.findElement(By.xpath("//*[@id=\"node-5\"]/div[3]/div"));
+//WebElement buttonnodeinput = this.driver.findElement(By.xpath("//*[@id=\"node-6\"]/div[1]/div"));
+//act.dragAndDrop(messagenodeoutput, buttonnodeinput).build().perform();	
+//
+//
+//WebElement buttonnode1output = this.driver.findElement(By.xpath("//*[@id=\"node-6\"]/div[2]/div/div[2]/div[2]/div/div[2]"));
+//WebElement buttonnode2input = this.driver.findElement(By.xpath("//*[@id=\"node-7\"]/div[1]/div"));
+//act.dragAndDrop(buttonnode1output, buttonnode2input).build().perform();
+//
+//WebElement buttonnode2output = this.driver.findElement(By.xpath("//*[@id=\"node-7\"]/div[2]/div/div[2]/div[2]/div/div[2]"));		
+//WebElement buttonnode3input = this.driver.findElement(By.xpath("//*[@id=\"node-8\"]/div[1]/div"));
+//act.dragAndDrop(buttonnode2output, buttonnode3input).build().perform();
+//
+//WebElement buttonnode3output = this.driver.findElement(By.xpath("//*[@id=\"node-8\"]/div[2]/div/div[2]/div[2]/div/div[2]"));		
+//WebElement resultnodeinput = this.driver.findElement(By.xpath("//*[@id=\"node-9\"]/div[1]/div"));
+//act.dragAndDrop(buttonnode3output, resultnodeinput).build().perform();
+
+
+
+
+ }
+}

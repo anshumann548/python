@@ -1,0 +1,52 @@
+
+	package omniengage;
+
+
+	import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+	import org.testng.annotations.Test;
+
+	public class Login extends Nodes{ 
+		WebDriver driver;
+		WebDriverWait wait;
+		
+		@Test
+		public void Loginpage() throws InterruptedException, MalformedURLException {
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.setCapability("browserVersion", "100");
+			chromeOptions.setCapability("platformName", "Windows");
+			// Showing a test name instead of the session id in the Grid UI
+			chromeOptions.setCapability("se:name", "My simple test"); 
+			// Other type of metadata can be seen in the Grid UI by clicking on the 
+			// session info or via GraphQL
+			chromeOptions.setCapability("se:sampleMetadata", "Sample metadata value"); 
+			WebDriver driver = new RemoteWebDriver(new URL(" http://172.21.190.125:5555/wd/hub"), chromeOptions);
+			
+			System.setProperty("webdriver.chrome.driver", "/home/anshumann/Downloads/chromedriver");
+			driver = driver ;//initializing driver
+		
+			
+			this.driver.navigate().to("https://app.omniengage.co/login"); //navigating to url
+			
+			this.driver.manage().window().maximize(); // maximizing window
+			
+			
+			this.driver.findElement(By.xpath("//*[@id=\'root\']/div/div/div/div[2]/form/div/div[3]/div/input")).sendKeys("anshumann.singh@venturepact.com");
+			this.driver.findElement(By.xpath("//*[@id=\'root\']/div/div/div/div[2]/form/div/div[4]/div[1]/input")).sendKeys("Pass@123");
+			//Sending user name and password
+			
+			this.driver.findElement(By.xpath("//*[@id=\'root\']/div/div/div/div[2]/form/div/div[5]/input")).click();
+			//Clicking submit
+		}
+
+	}
+
+
+

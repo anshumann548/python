@@ -1,0 +1,32 @@
+package omniengage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+public class Chatanalytics extends Audiencetrigger 
+
+{
+
+@Test(priority = 9)
+public void	Chatcheck() throws InterruptedException{
+
+	
+	driver.findElement(By.className("chats")).click();
+	//opening chat
+	
+	driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[4]/div/div/div[2]/div[2]/button[1]")).click();
+	//handling pop up
+	
+	Thread.sleep(3000);
+	
+	
+    WebElement l = driver.findElement(By.xpath("//*[@id=\"on-hover\"]/li[114]/div[1]"));
+
+    ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", l);
+
+          }
+	
+	
+}

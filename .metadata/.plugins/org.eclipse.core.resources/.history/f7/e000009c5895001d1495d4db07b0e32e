@@ -1,0 +1,17 @@
+package omniengage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class constructorc {
+
+	constructor() {
+		WebDriver driver;
+		WebDriverWait wait;
+        System.setProperty("webdriver.chrome.driver", "/home/anshumann/Downloads/chromedriver");
+		driver = new ChromeDriver();
+		
+		
+	}
+}

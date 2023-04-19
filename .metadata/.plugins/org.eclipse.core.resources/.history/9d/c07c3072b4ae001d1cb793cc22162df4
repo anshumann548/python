@@ -1,0 +1,46 @@
+
+<suite name="TestSuite" thread-count="2" parallel="tests" >
+
+<test name="ChromeTest">
+
+<parameter name="browser" value="Chrome" />
+
+<classes>
+
+<class name="parallelTest.CrossBrowserScript">
+
+</class>
+
+</classes>
+
+</test>
+
+<test name="FirefoxTest">
+
+<parameter name="browser" value="Firefox" />
+
+<classes>
+
+<class name="omniengage.Nodes">
+
+</class>
+
+</classes>
+
+</test>
+
+<test name="EdgeTest">
+
+<parameter name="browser" value="Edge" />
+
+<classes>
+
+<class name="omniengage.Nodes">
+
+</class>
+
+</classes>
+
+</test>
+
+</suite>

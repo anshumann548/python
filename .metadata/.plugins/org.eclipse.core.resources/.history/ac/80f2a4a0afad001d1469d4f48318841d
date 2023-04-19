@@ -1,0 +1,50 @@
+package omniengage;
+
+import java.awt.AWTException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.Test;
+
+@Test
+public class Nodes {
+
+	public void controller() throws InterruptedException, AWTException, MalformedURLException {
+		DesiredCapabilities cap = new DesiredCapabilities();
+		cap.setBrowserName("chrome");
+//		cap.setBrowserName("firefox");
+		
+		cap.setPlatform(Platform.LINUX);
+	
+		
+//		System.setProperty("webdriver.chrome.driver", "/home/anshumann/Downloads/chromedriver");
+
+		WebDriver[] drivers = new WebDriver[2] ;
+		drivers[0]= new RemoteWebDriver(new URL(" http://172.21.190.125:4444/wd/hub"), cap);
+		cap.setBrowserName("firefox");
+		drivers[1]= new RemoteWebDriver(new URL(" http://172.21.190.125:4444/wd/hub"), cap);
+		Chatanalytics obj = new Chatanalytics();
+		for(int i=0;i<2;i++) {
+			Login.driver = drivers[i];
+			obj.Loginpage();
+			obj.BotmakerNode();
+			obj.dragndropNode();
+			obj.inserter();
+			obj.livebotopener();
+			obj.botsolver();
+			obj.audienceopener();
+			obj.rfopener();
+		    obj.Chatcheck();
+		}
+		
+
+		// functions called,you have to call the last function at first to create
+		// inverse calling hierarchy
+
+		
+	}
+}

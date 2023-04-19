@@ -1,0 +1,146 @@
+package omniengage;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+public class Randomflow extends Login{
+
+@Test(priority=10)
+
+public void randomizer() throws InterruptedException
+
+{
+	
+
+driver.navigate().to("https://app.outgrow.chat/builder/anshumann.singh-1863");	
+	
+
+Actions act = new Actions(driver);
+
+//DragandDrop of nodes one by one
+
+Thread.sleep(3000);
+
+//Xpath of nodes to drop in canvas
+
+WebElement askquestion = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[1]/td[1]/div"));
+WebElement singleselect = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[1]/td[2]/div"));
+WebElement getemailid = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[2]/td[1]/div\n"));
+WebElement getphonenumber = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[2]/td[2]/div"));
+WebElement getusername = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[3]/td[1]/div"));
+WebElement getaddress = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[3]/td[2]/div"));
+WebElement calculateresult = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[4]/td[1]/div"));
+//WebElement sendmessage = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[4]/td[2]/div"));
+//WebElement audience = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[5]/td[2]/div"));
+
+//Xpath of canvas
+
+WebElement canvas = this.driver.findElement(By.xpath("//*[@id=\"drawflow\"]/div[2]"));
+
+//Dropping the nodes
+
+final String java_script =
+      "var src=arguments[0],tgt=arguments[1];var dataTransfer={dropEffe" +		
+      "ct:'',effectAllowed:'all',files:[],items:{},types:[],setData:fun" +
+      "ction(format,data){this.items[format]=data;this.types.append(for" +
+      "mat);},getData:function(format){return this.items[format];},clea" +
+      "rData:function(format){}};var emit=function(event,target){var ev" +
+      "t=document.createEvent('Event');evt.initEvent(event,true,false);" +
+      "evt.dataTransfer=dataTransfer;target.dispatchEvent(evt);};emit('" +
+      "dragstart',src);emit('dragenter',tgt);emit('dragover',tgt);emit(" +
+      "'drop',tgt);emit('dragend',src);";
+
+((JavascriptExecutor)driver).executeScript(java_script, askquestion, canvas);
+Thread.sleep(1000);
+((JavascriptExecutor)driver).executeScript(java_script,singleselect,canvas);
+Thread.sleep(1000);
+((JavascriptExecutor)driver).executeScript(java_script,getemailid,canvas);
+Thread.sleep(1000);
+((JavascriptExecutor)driver).executeScript(java_script,getphonenumber,canvas);
+Thread.sleep(1000);
+((JavascriptExecutor)driver).executeScript(java_script, getusername, canvas);
+Thread.sleep(1000);
+((JavascriptExecutor)driver).executeScript(java_script,getaddress,canvas);
+Thread.sleep(1000);
+((JavascriptExecutor)driver).executeScript(java_script,calculateresult,canvas);
+//((JavascriptExecutor)driver).executeScript(java_script,sendmessage,canvas);
+//((JavascriptExecutor)driver).executeScript(java_script,audience,canvas);
+
+
+//Xpath of nodes after dropping to canvas
+
+WebElement askaquestion = driver.findElement(By.xpath("//*[@id=\"phone\"]/div"));
+//WebElement Buttonnode = driver.findElement(By.xpath("//*[@id=\"node-2\"]/div[2]/div"));
+//WebElement getemailnode = driver.findElement(By.xpath("//*[@id=\"node-3\"]/div[2]/div"));
+//WebElement getphonenode = driver.findElement(By.xpath("//*[@id=\"node-4\"]/div[2]/div"));
+//WebElement getusernamenode = driver.findElement(By.xpath("//*[@id=\"node-5\"]/div[2]/div"));
+//WebElement getaddressnode = driver.findElement(By.xpath("//*[@id=\"node-6\"]/div[2]/div"));
+//WebElement resultnode = driver.findElement(By.xpath("//*[@id=\"node-7\"]/div[2]/div"));
+//WebElement sendmsgnode = driver.findElement(By.xpath("//*[@id=\"node-8\"]/div[2]/div"));
+//WebElement audiencenode = driver.findElement(By.xpath("//*[@id=\"node-9\"]/div[2]/div"));
+
+//Getting location of every node
+
+Point Node1Location = askaquestion.getLocation();
+
+int x = Node1Location.getX();
+int y = Node1Location.getY();
+
+act.dragAndDropBy(Buttonnode, (x/2), (y/2)).build().perform();
+
+Point Node2Location = Buttonnode.getLocation();
+
+int x2 = Node2Location.getX();
+int y2 = Node2Location.getY();
+
+Point Node3Location = getemailnode.getLocation();
+
+int x3 = Node3Location.getX();
+int y3 = Node3Location.getY();
+
+Point Node4Location = getphonenode.getLocation();
+
+int x4 = Node4Location.getX();
+int y4 = Node4Location.getY();
+
+Point Node5Location = getusernamenode.getLocation();
+
+int x5 = Node5Location.getX();
+int y5 = Node5Location.getY();
+
+Point Node6Location = getaddressnode.getLocation();
+
+int x6 = Node6Location.getX();
+int y6 = Node6Location.getY();
+
+Point Node7Location = resultnode.getLocation();
+
+int x7 = Node7Location.getX();
+int y7 = Node7Location.getY();
+
+Point Node8Location = sendmsgnode.getLocation();
+
+int x8 = Node8Location.getX();
+int y8 = Node8Location.getY();
+
+
+
+//Repositioning the nodes
+
+
+act.dragAndDropBy(getemailnode, (x2/2), (y2/2)).build().perform();
+act.dragAndDropBy(getphonenode, (x3/2), (y3/2)).build().perform();
+act.dragAndDropBy(getusernamenode, (x4/2), (y4/2)).build().perform();
+act.dragAndDropBy(getaddressnode, (x5/2), (y5/2)).build().perform();
+act.dragAndDropBy(resultnode, (x6/2), (y6/2)).build().perform();
+act.dragAndDropBy(sendmsgnode, (x7/2), (y7/2)).build().perform();
+act.dragAndDropBy(audiencenode, (x8/2), (y8/2)).build().perform();
+
+
+    }
+}

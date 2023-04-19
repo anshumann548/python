@@ -1,4 +1,4 @@
-import array as ar
+
 c = 0
 l = 0
 z = 0
@@ -30,8 +30,6 @@ for i in range(0,key,1):
  
 
 print("Decending list is :",mylist)
-
-print("mylist len : ", mylist.__len__())
 
 for i in range(0,mylist.__len__()):
         z=int(z)+mylist[i]

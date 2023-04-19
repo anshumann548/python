@@ -1,0 +1,93 @@
+package omniengage;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+public class Randomflow extends Login{
+
+@Test(priority=10)
+
+public void randomizer() throws InterruptedException
+
+{
+	
+
+driver.navigate().to("https://app.outgrow.chat/builder/anshumann.singh-1863");	
+	
+
+Actions act = new Actions(driver);
+
+//DragandDrop of nodes one by one
+
+Thread.sleep(3000);
+
+//Xpath of nodes to drop in canvas
+
+WebElement askquestion = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[1]/td[1]/div"));
+WebElement singleselect = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[1]/td[2]/div"));
+WebElement getemailid = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[2]/td[1]/div\n"));
+WebElement getphonenumber = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[2]/td[2]/div"));
+WebElement getusername = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[3]/td[1]/div"));
+WebElement getaddress = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[3]/td[2]/div"));
+WebElement calculateresult = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[4]/td[1]/div"));
+WebElement sendmessage = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[4]/td[2]/div"));
+WebElement audience = this.driver.findElement(By.xpath("//*[@id=\"reverse-bar\"]/div[2]/div/div[1]/table/tbody/tr[5]/td[2]/div"));
+
+//Xpath of canvas
+
+WebElement canvas = this.driver.findElement(By.xpath("//*[@id=\"drawflow\"]/div[2]"));
+
+//Xpath of nodes after dropping to canvas
+WebElement askaquestion = driver.findElement(By.xpath("//*[@id=\"phone\"]/div"));
+WebElement Buttonnode = driver.findElement(By.xpath("//*[@id=\"node-2\"]/div[2]/div"));
+
+//Getting location of every node
+Point Node1Location = askaquestion.getLocation();
+
+int x = Node1Location.getX();
+int y = Node1Location.getY();
+
+Point Node2Location = Buttonnode.getLocation();
+
+int x2 = Node2Location.getX();
+int y2 = Node2Location.getY();
+
+//Dropping the nodes
+final String java_script =
+        "var src=arguments[0],tgt=arguments[1];var dataTransfer={dropEffe" +		
+        "ct:'',effectAllowed:'all',files:[],items:{},types:[],setData:fun" +
+        "ction(format,data){this.items[format]=data;this.types.append(for" +
+        "mat);},getData:function(format){return this.items[format];},clea" +
+        "rData:function(format){}};var emit=function(event,target){var ev" +
+        "t=document.createEvent('Event');evt.initEvent(event,true,false);" +
+        "evt.dataTransfer=dataTransfer;target.dispatchEvent(evt);};emit('" +
+        "dragstart',src);emit('dragenter',tgt);emit('dragover',tgt);emit(" +
+        "'drop',tgt);emit('dragend',src);";
+  
+((JavascriptExecutor)driver).executeScript(java_script, askquestion, canvas);
+((JavascriptExecutor)driver).executeScript(java_script,singleselect,canvas);
+((JavascriptExecutor)driver).executeScript(java_script,getemailid,canvas);
+((JavascriptExecutor)driver).executeScript(java_script,getphonenumber,canvas);
+((JavascriptExecutor)driver).executeScript(java_script, getusername, canvas);
+((JavascriptExecutor)driver).executeScript(java_script,getaddress,canvas);
+((JavascriptExecutor)driver).executeScript(java_script,calculateresult,canvas);
+((JavascriptExecutor)driver).executeScript(java_script,sendmessage,canvas);
+((JavascriptExecutor)driver).executeScript(java_script,audience,canvas);
+
+//Repositioning the nodes
+act.dragAndDropBy(Buttonnode, (x/2), (y/2)).build().perform();
+
+
+
+
+
+
+
+
+    }
+}
