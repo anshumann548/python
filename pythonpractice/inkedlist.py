@@ -38,14 +38,16 @@ while(var !=-2):
     if Start is None:
         Start=x
         itr=Start
+        traverse=Start
+
     else:
         itr.next=x
         itr=x
 
 print("Nodes are")
-while(Start!=None):
-        print(Start.val,"=>", end="")
-        Start=Start.next
+while(traverse!=None):
+        print(traverse.val,"=>", end="")
+        traverse=traverse.next
 else:print("End of list")
 
 
