@@ -32,6 +32,7 @@ class Node:
 Start=None
 itr = None
 var=0
+traverse =None
 while(var !=-2):
     var = int(input("Enter your values : "))
     x=Node(var)
@@ -44,11 +45,22 @@ while(var !=-2):
         itr.next=x
         itr=x
 
-print("Nodes are")
-while(traverse!=None):
-        print(traverse.val,"=>", end="")
-        traverse=traverse.next
-else:print("End of list")
+def printer(goddha):
+    print("Nodes are")
+    while(goddha!=None):
+        print(goddha.val,"=>", end="")
+        goddha=goddha.next
 
+printer(traverse)
+# else:print("End of list")
+var = 0 # reset
+condition =input("Want to add anything , y for yes , any key for no")
+if(condition=='y'):
+    while(var !=-2):
+        var = int(input("Enter your values : "))
+        x=Node(var)
+        itr.next=x
+        itr=x
 
+printer(Start)
 
